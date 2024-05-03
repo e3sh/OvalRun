@@ -39,104 +39,16 @@ class GameTask_Main extends GameTask {
 		g.font["std"].useScreen(1);
 		
  	    //g.font["8x8white"].useScreen(1);
-	    g.sprite.setPattern("Player", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:0, y: 0, w: 32, h: 32, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
+	    g.sprite.setPattern("Player", { image: "SPGraph", wait: 0, pattern: [{ x:0, y: 0, w: 32, h: 32, r: 0, fv: false, fh: false }]});
 
-	    g.sprite.setPattern("Turlet", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:0, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
+		g.sprite.setPattern("BULLET_P", { image: "SPGraph", wait: 0, pattern: [{ x:32 + 16, y: 32 + 16, w: 8, h: 32, r: 0, fv: false, fh: false }]});
+		g.sprite.setPattern("BULLET_P2", { image: "SPGraph", wait: 0, pattern: [{ x:16, y: 16, w: 8, h: 32, r: 0, fv: false, fh: false }]});
+		g.sprite.setPattern("BULLET_P3", { image: "SPGraph", wait: 0, pattern: [{ x:48, y: 48, w: 8, h: 8, r: 0, fv: false, fh: false }]});
 
-		g.sprite.setPattern("BULLET_P", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:32 + 16, y: 32 + 16, w: 8, h: 32, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
+		g.sprite.setPattern("Enemy", { image: "SPGraph", wait: 0, pattern: [{ x:0, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }]});
 
-		g.sprite.setPattern("BULLET_P2", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:16, y: 16, w: 8, h: 32, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-
-		g.sprite.setPattern("BULLET_P3", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:48, y: 48, w: 8, h: 8, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-		/*
-	    g.sprite.setPattern("Enemy", {
-	        image: "SPGraph",
-	        wait: 10,
-	        pattern: [
-                //{ x:0, y: 96, w: 32, h: 32, r: 0, fv: false, fh: false }
-				
-                { x:32, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }
-                ,{ x:32, y: 64, w: 32, h: 32, r: 0, fv: false, fh: false }
-                ,{ x:32, y: 96, w: 32, h: 32, r: 0, fv: false, fh: false }
-				
-	            ]
-    	    }
-        );
-		*/
-	    g.sprite.setPattern("Enemy", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:0, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-
-
-	    g.sprite.setPattern("BULLET_E", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x: 32+16, y: 32+16, w: 4, h: 16, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-
-	    g.sprite.setPattern("ARMOR_P", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x: 0, y: 64, w: 32, h: 8, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-	    g.sprite.setPattern("ARMOR_E", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x: 0, y: 0, w: 2, h: 2, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-	    g.sprite.setPattern("FRIEND_P", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x:0, y: 0, w: 32, h: 32, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-
-		g.sprite.setPattern("POWERUP", { image: "SPGraph",
-		wait: 0, pattern: [
-				{ x: 32, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }
-				]
-			}
-		);
-
-	    g.sprite.setPattern("block", { image: "SPGraph",
-	        wait: 0, pattern: [
-                { x: 0, y: 0, w: 2, h: 2, r: 0, fv: false, fh: false }
-	            ]
-	        }
-        );
-
-
+	    g.sprite.setPattern("BULLET_E", { image: "SPGraph", wait: 0, pattern: [{ x: 32+16, y: 32+16, w: 4, h: 16, r: 0, fv: false, fh: false }]});
+		g.sprite.setPattern("POWERUP", { image: "SPGraph",wait: 0, pattern: [{ x: 32, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }]});
 
 		this.scene["Game"].init(g);
 		this._initGame(g);

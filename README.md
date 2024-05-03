@@ -55,3 +55,9 @@ https://mevius.5ch.net/test/read.cgi/gamedev/1695630148/
 
      b358
  
+ Release2
+      綴り修正と合わせてレーダー追加のアップデート上げときます。
+     https://3.gigafile.nu/0508-d29888f27a8adaf3d68ec46b5e6315313
+
+     63f4
+

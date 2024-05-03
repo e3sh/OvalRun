@@ -26,6 +26,9 @@ function SceneGame(){
 
 	let laplist;
 
+	const submapImage = new OffscreenCanvas( 1600, 960 );
+	const submapctx = submapImage.getContext("2d");
+
 	function step_running_check(){
 		let stepc;
 		let store;
@@ -66,12 +69,11 @@ function SceneGame(){
 		watchdog = new step_running_check();
 
 		GObj = [];
-		stageCtrl = new StageControl(g);
 
+		stageCtrl = new StageControl(g);
 		stageCtrl.init();
 
 		spriteTable = g.sprite.itemList();
-	
 
 		// pSG setup
 		note = [];
@@ -306,6 +308,11 @@ function SceneGame(){
 			}
 		}
 
+
+
+		submapctx.clearRect(0,0,submapImage.width, submapImage.height);
+		drawsubmapBG(submapctx);
+
 		g.sprite.CollisionCheck(); 
 		spriteTable = g.sprite.itemList();
 
@@ -334,7 +341,6 @@ function SceneGame(){
 						//spitem.vx = spitem.x - myship.x//vx*-1;//.05;
 						//spitem.vy = spitem.y - myship.y//spitem.vy*-1;//.05;
 	//					console.log("h" + spitem.id);
-						stageCtrl.mapDamage(sp);
 						sp.dispose();
 						spitem.dispose();
 						
@@ -364,6 +370,10 @@ function SceneGame(){
 						note[0].play(s, g.time());
 					}
 				}
+
+				submapctx.beginPath();
+				submapctx.fillStyle = "white";
+				submapctx.fillRect(sp.x/10,sp.y/10,2,2);
 			}
 			if (sp.id == "Enemy"){
 				let c = sp.hit;
@@ -375,8 +385,6 @@ function SceneGame(){
 						//spitem.vx = spitem.x - myship.x//vx*-1;//.05;
 						//spitem.vy = spitem.y - myship.y//spitem.vy*-1;//.05;
 	//					console.log("h" + spitem.id);
-						stageCtrl.mapDamage(sp);
-	
 						let powup = new GameObj_GradeUpItem();
 						powup.spriteItem = g.sprite.itemCreate("POWERUP", false, 28, 16);
 						powup.spriteItem.pos(sp.x,sp.y,0, 0.5);
@@ -394,7 +402,9 @@ function SceneGame(){
 						break;//複数弾同時弾着でパワーアップが複数出てしまうので１回出たらLOOPをBreak;
 					}
 				}
-
+				submapctx.beginPath();
+				submapctx.fillStyle = "red";
+				submapctx.fillRect(sp.x/10,sp.y/10,2,2);
 			}
 		}
 		//spriteTable = 
@@ -467,6 +477,8 @@ function SceneGame(){
 				o.draw(g);
 			}
 		}
+
+		g.screen[1].putImage(submapImage, 640-160, 480-150);
 		/*		
 		//　DEBUG DRAW 
 		if (true){
@@ -490,5 +502,20 @@ function SceneGame(){
 		}
 		*/
 		watchdog.set();
+	}
+
+	function drawsubmapBG(dev){
+
+		dev.beginPath();
+		dev.globalAlpha = 1.0;
+		dev.strokeStyle = "gray";
+		dev.lineWidth = 12;
+		dev.arc(160-48, 48, 30, 0.5 * Math.PI, 1.5 * Math.PI, true);
+		dev.arc(48, 48, 30, 1.5 * Math.PI, 0.5 * Math.PI, true);
+		dev.moveTo(160-48,78);
+		dev.lineTo(48,78);
+	
+		dev.stroke();
+	
 	}
 }
