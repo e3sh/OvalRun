@@ -5,16 +5,17 @@ THEMA Spin,Roll/DONICHI THREADE 16th
 *OVALRUN*
 --------
 
-*Repository版 動作確認URL:*予定
+*Repository版 動作確認URL:
 https://e3sh.github.io/OvalRun/OVALRUN.html
  本リポリトジ　
 
-*Release版 動作確認URL:*予定
+*Release版 動作確認URL:
 https://e3sh.github.io/OvalRun/release/OVALRUN.html
  土日スレ提出分
 
 提出分との相違点
-    -
+
+    -一部改善とGameCoreのパッチ部分(背景色)
 
 #### 提出先情報
 
