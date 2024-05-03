@@ -9,7 +9,11 @@ function StageControl(game){
 	let rank;
 
 	const bgImage = new OffscreenCanvas( 1600, 960 );
-	const bgCtx  = bgImage.getContext("2d");
+	const bgCtx  = bgImage.getContext("2d" ,{
+			alpha:false
+			,willReadFrequently:true
+		}
+	);
 
 	let g = game;
 

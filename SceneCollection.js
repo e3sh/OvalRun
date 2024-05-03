@@ -265,9 +265,11 @@ function SceneVGPad(){
 
         let cl = {};
         cl.draw = function(device){
+			device.beginPath();
             device.globalAlpha = 1.0;
+
 		}
-		g.screen[0].putFunc(cl);
+		g.screen[1].putFunc(cl);
 
 		for (let i in st){
 		//	g.font["8x8white"].putchr(st[i],X, Y+i*8);
