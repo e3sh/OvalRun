@@ -173,9 +173,9 @@ function SceneGame(){
 			for (let o of spt) if (o.id == "Enemy") ec++;
 
 			let cf = false;
-			for(let n of laplist) if (n > 4) cf = true;
+			for(let n of laplist) if (n.count > 4) cf = true;
 			if (cf){
-				if (laplist[0] > 4) {
+				if (laplist[0].count > 4) {
 					ec = 0; //Clear
 				}else{
 					ene.now = 0;// GameOver
@@ -372,8 +372,9 @@ function SceneGame(){
 				}
 
 				submapctx.beginPath();
-				submapctx.fillStyle = "white";
-				submapctx.fillRect(sp.x/10,sp.y/10,2,2);
+				submapctx.fillStyle = "yellow";
+				let ms = (Math.trunc(g.time()/250)%2 ==0)?2:1;
+				submapctx.fillRect(Math.trunc(sp.x/10)-ms,Math.trunc(sp.y/10)-ms,ms+3,ms+3);
 			}
 			if (sp.id == "Enemy"){
 				let c = sp.hit;
@@ -404,7 +405,7 @@ function SceneGame(){
 				}
 				submapctx.beginPath();
 				submapctx.fillStyle = "red";
-				submapctx.fillRect(sp.x/10,sp.y/10,2,2);
+				submapctx.fillRect(Math.trunc(sp.x/10)-1,Math.trunc(sp.y/10)-1,3,3);
 			}
 		}
 		//spriteTable = 

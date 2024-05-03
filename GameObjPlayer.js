@@ -46,7 +46,9 @@ function GameObjectPlayer(game){
     let lapresult;
     let lapcnt
 
-    this.LAP = function(){return lapcnt;}
+    this.LAP = function(){
+        return {count:lapcnt, par: guidemode/20 };
+    }
     this.ResetLAP = function(){
         //guidemode = 0;
         //lapcheck = [];
@@ -543,10 +545,10 @@ function GameObjectPlayer(game){
     
     this.draw = function(g){
         //g.font["std"].putchr("SPEED:" + status.speed.toString().substring(0,5) + " LN:" + lane,0,200);
-        g.font["std"].putchr("LANE:" + lane,0,224);
+        //g.font["std"].putchr("LANE:" + lane,0,224);
 
         //g.font["std"].putchr("CP:" + guidemode + " LAP" + lapcnt + " " + Math.trunc(g.time() - laptime)/1000,0,232);
-        g.font["std"].putchr("LAP" + lapcnt + " " + Math.trunc(g.time() - laptime)/1000,0,232);
+        g.font["std"].putchr(lane + "Ln " + Math.trunc(g.time() - laptime)/1000,0,232);
         for (let i in lapresult){
             let n = i + 1;
             g.font["std"].putchr("" + lapresult[i]/1000,24,248+i*8);

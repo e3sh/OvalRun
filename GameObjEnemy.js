@@ -34,7 +34,9 @@ function GameObjectEnemy(game){
     let lane;
     let wallcnt;
 
-    this.LAP = function(){return lapcnt;}
+    this.LAP = function(){
+        return {count:lapcnt, par: guidemode/20 };
+    }
     this.ResetLAP = function(){
         lane = 3;
         lapcnt = 0;

@@ -16,6 +16,7 @@ function SceneGameUI(){
 
 	let speed;
 	let lap;
+	let finalf
 
 	this.step = function(g, input, p){
 
@@ -25,6 +26,10 @@ function SceneGameUI(){
 
 		speed = p.status.speed;
 		lap = p.laplist;
+		finalf = false;
+		for (let i in lap){
+			if (lap[i].count > 3) finalf = true;
+		}
 	}
 	this.draw = function(g){
 		/*
@@ -44,11 +49,22 @@ function SceneGameUI(){
         g.screen[1].fill(0,240,16,200,"yellowgreen");
         g.screen[1].fill(1,241,14,198-(198*(speed/30)),"black");
 
-		g.font["std"].putchr("SPEED:" + Math.trunc(speed), X, Y-8);
+		g.font["std"].putchr(Math.trunc(speed) + " ", X+4, Y-16);//SPEED
 
-		if (Boolean(lap)) g.screen[1].fill(0, 48, 48, 8*lap.length, "black");
+		const LR_X = 640-120;
+		const LR_Y = 200;
+
+
+		if (Boolean(lap)) g.screen[1].fill(LR_X, LR_Y, 80, 8*lap.length, "black");
 		for (let i in lap){
-			g.font["std"].putchr(i +　" LAP:" + lap[i],0,48+i*8);
+			const t = (i==0)?"PLAYER":"ENEMY ";
+			g.screen[1].fill(LR_X+40, LR_Y+i*8+3, 38*lap[i].par, 3, "limegreen");
+			g.font["std"].putchr(t + " LAP:" + lap[i].count,LR_X,LR_Y+i*8);
+		}
+		if (finalf && (Math.trunc(g.time()/333)%2 ==0)) {
+
+			g.screen[1].fill(320-30, LR_Y-16, 66, 8, "black");
+			g.font["std"].putchr("FINAL LAP",320-24, LR_Y-16);
 		}
 		//g.kanji.print("強化：[正面][側面][僚機]", X, Y+16);
 
