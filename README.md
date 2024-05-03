@@ -6,11 +6,11 @@ THEMA Spin,Roll/DONICHI THREADE 16th
 --------
 
 *Repository版 動作確認URL:*予定
-https://e3sh.github.io/OvelRun/OVALRUN.html
+https://e3sh.github.io/OvalRun/OVALRUN.html
  本リポリトジ　
 
 *Release版 動作確認URL:*予定
-https://e3sh.github.io/OvelRun/release/OVALRUN.html
+https://e3sh.github.io/OvalRun/release/OVALRUN.html
  土日スレ提出分
 
 提出分との相違点
@@ -56,7 +56,8 @@ https://mevius.5ch.net/test/read.cgi/gamedev/1695630148/
      b358
  
  Release2
-      綴り修正と合わせてレーダー追加のアップデート上げときます。
+ 
+     タイトル誤記修正、レーダー追加
      https://3.gigafile.nu/0508-d29888f27a8adaf3d68ec46b5e6315313
 
      63f4
