@@ -35,7 +35,7 @@ class GameTask_Main extends GameTask {
 		this.scene[	"VGpad"	] = new SceneVGPad();
 
 		g.sprite.useScreen(0);
-		g.kanji.useScreen(0);
+		//g.kanji.useScreen(0);
 		g.font["std"].useScreen(1);
 		
  	    //g.font["8x8white"].useScreen(1);
@@ -124,7 +124,7 @@ class GameTask_Main extends GameTask {
 
 		g.sprite.setPattern("POWERUP", { image: "SPGraph",
 		wait: 0, pattern: [
-				{ x: 0, y: 0, w: 2, h: 2, r: 0, fv: false, fh: false }
+				{ x: 32, y: 32, w: 32, h: 32, r: 0, fv: false, fh: false }
 				]
 			}
 		);

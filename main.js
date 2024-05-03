@@ -18,12 +18,13 @@ function main() {
 	for (let i in spfd) {
 	    game.setSpFont(spfd[i]);
 	}
+    /*
     game.kanji = new fontPrintControl(
         game
         ,game.asset.image["ASCII"].img,	 6, 8
         ,game.asset.image["JISLV1"].img,12, 8
     )
-
+    */
     //Game Task Setup
 	game.task.add(new GameTask_Main("main"));
 
@@ -91,12 +92,14 @@ function SpriteFontData() {
 
     ]
 }
+/*
 //----------------------------------------------------------------------
 //Image Asset Setup
 function pictdata(g){
 	g.asset.imageLoad( "SPGraph","pict/cha.png"	);
 	//g.asset.imageLoad( "title"  ,"pict/TitleLogo.png" );
 
-	g.asset.imageLoad( "JISLV1" ,"pict/k12x8_jisx0208c.png");
+	//g.asset.imageLoad( "JISLV1" ,"pict/k12x8_jisx0208c.png");
 	g.asset.imageLoad( "ASCII"  ,"pict/k12x8_jisx0201c.png");
 }
+*/

@@ -222,7 +222,7 @@ function SceneGame(){
 					let x = Math.trunc(r.x);
 					let y = Math.trunc(r.y);
 					screen.fill(x,y,48,8,"Black");
-					g.kanji.print("Extend.", x, y); 
+					g.font["std"].putchr("Extend.", x, y); 
 				};
 				msg.pos(myship.x, myship.y);
 				msg.move(0, 1, 45);
@@ -302,7 +302,7 @@ function SceneGame(){
 				let s = g.beep.makeScore(score, 150, 1);
 				note[0].play(s, g.time());
 
-				g.screen[0].buffer.turn(0);
+				//g.screen[0].buffer.turn(0);
 			}
 		}
 
@@ -379,7 +379,7 @@ function SceneGame(){
 	
 						let powup = new GameObj_GradeUpItem();
 						powup.spriteItem = g.sprite.itemCreate("POWERUP", false, 28, 16);
-						powup.spriteItem.pos(sp.x,sp.y);
+						powup.spriteItem.pos(sp.x,sp.y,0, 0.5);
 						powup.init(g);
 				
 						GObj.push(powup);

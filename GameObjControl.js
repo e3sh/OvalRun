@@ -658,13 +658,13 @@ function GameObj_GradeUpItem(){
         this.barth = true;
 
         this.spriteItem.mode = this.mode;
-        this.spriteItem.drawDesignData = drawDesignData;
+        //this.spriteItem.drawDesignData = drawDesignData;
         this.spriteItem.blink = true;
   
         reexf = false;
 
-        this.spriteItem.normalDrawEnable = false;
-        this.spriteItem.customDraw = customDraw;
+        this.spriteItem.normalDrawEnable = true;
+        //this.spriteItem.customDraw = customDraw;
 
         this.spriteItem.moveFunc = function(delta){
             let tajs = (delta/(1000/60));

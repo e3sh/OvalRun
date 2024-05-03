@@ -6,7 +6,7 @@ THEMA Spin,Roll/DONICHI THREADE 16th
 --------
 
 *Repository版 動作確認URL:*予定
-https://e3sh.github.io/OvelRun/OVELRUN.html
+https://e3sh.github.io/OvelRun/OVALRUN.html
  本リポリトジ　
 
 *Release版 動作確認URL:*予定
@@ -32,16 +32,26 @@ https://mevius.5ch.net/test/read.cgi/gamedev/1695630148/
     ＊お題は製作のヒントであり、絶対ではありません
 
      ---
-     xxxx 名前は開発中のものです。
-     2024/xx/xx(金) 21:17:45.54ID:JgoEu5NU
+    0197 名前は開発中のものです。
+    2024/05/03(金) 19:10:05.70ID:CvRhLvwH
+
      【お題】回る／転がる
      【タイトル】OVAL RUN
-     【URL】
+     【URL】https://94.gigafile.nu/0602-bfbe2b897e1914ca65c1aa4a8dac8eadb
      【製作時間】5日
      【開発環境】Javascript/VisualStudioCode
-     　キーボード:HomeキーまたはゲームパッドのBACKボタンで全画面表示
+     【コメント】オーバルコースを周回するゲームです。ゲームの形にするのに苦労しました。
 
-     【コメント】オーバルコースを周回するゲームです。
-          なかなかゲームっぽくならなくて苦労しました。
+      [操作]
+     STEALLING : Q,Ekey or GamePad Button L/R
+     ACCELL : W or GamePad 左アナログスティック上
+     BLAKE : S or GamePad 左アナログスティック下
+     SHOT : SPACE or GamePad Button X/A
 
+     ステージクリア条件）
+       敵をすべて倒すか先にコースを5周するとステージクリア
+     ゲームオーバー条件）
+       残機がなくなるか先にコースを5周されるとゲームオーバー
+
+     b358
  

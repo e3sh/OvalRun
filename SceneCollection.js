@@ -46,8 +46,9 @@ function SceneGameUI(){
 
 		g.font["std"].putchr("SPEED:" + Math.trunc(speed), X, Y-8);
 
+		if (Boolean(lap)) g.screen[1].fill(0, 48, 48, 8*lap.length, "black");
 		for (let i in lap){
-			g.font["std"].putchr(i +　" LAP:" + lap[i],0,150+i*8);
+			g.font["std"].putchr(i +　" LAP:" + lap[i],0,48+i*8);
 		}
 		//g.kanji.print("強化：[正面][側面][僚機]", X, Y+16);
 
@@ -90,7 +91,7 @@ function SceneTitle(){
 	const Title = [
 		"Thema  Spin/Roll (Donichi thread16)"
 		,""
-		,"     OVEL RACE"
+		,"     OVAL RUN"
 		,""
 		,""
 		,""
@@ -168,7 +169,7 @@ function SceneGameOver(){
 		g.font["std"	].putchr("GAME OVER",		 X-100, Y-280,4	);
 		//g.font["std"	].putchr("STAGE:" + stage,	 X-80, Y,	);
 		//g.font["std"	].putchr("SCORE:" + score, X-80, Y+30	);
-		g.font["8x8white"].putchr(":" + (delay?"OK":"WAIT") , X, Y+8);
+		g.font["std"	].putchr(":" + (delay?"OK":"WAIT") , X, Y+8);
 	}
 }
 //----------------------------------------------------------------------
