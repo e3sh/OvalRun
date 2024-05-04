@@ -15,7 +15,7 @@ https://e3sh.github.io/OvalRun/release/OVALRUN.html
 
 提出分との相違点
 
-    -一部改善とGameCoreのパッチ部分(背景色)
+    -GameCoreのパッチ部分(背景色)
 
 #### 提出先情報
 
@@ -63,3 +63,9 @@ https://mevius.5ch.net/test/read.cgi/gamedev/1695630148/
 
      63f4
 
+ Release3
+
+     UI変更(自分と敵の周回状況の進行度表示とファイナルラップ表示)
+     https://38.gigafile.nu/0509-da4166f178e3b6d0a9fa735c9b3749788
+
+     fa5c
