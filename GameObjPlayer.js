@@ -286,7 +286,7 @@ function GameObjectPlayer(game){
                 let py = this.y + Math.sin((Math.PI/180)*r)*16 
 
                 sp.pos(px, py, 0, 0.6 );
-                sp.move((r+90)% 360, 16, 120);// number, r, speed, lifetime//3kf 5min
+                sp.move((r+90)% 360, 16, 120);// r, speed, lifetime
                 /*
                 if (Friend.sp.living){
                     op = this.op;

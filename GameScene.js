@@ -174,13 +174,15 @@ function SceneGame(){
 			let spt = g.sprite.itemList();
 			for (let o of spt) if (o.id == "Enemy") ec++;
 
+			let losef = false;
 			let cf = false;
 			for(let n of laplist) if (n.count > 4) cf = true;
 			if (cf){
 				if (laplist[0].count > 4) {
 					ec = 0; //Clear
 				}else{
-					ene.now = 0;// GameOver
+					//ene.now = 0;// GameOver
+					losef = true;//周回負けの場合/残機あり表示のままにしたいので別判定基準
 				}
 			}  
 
@@ -216,20 +218,28 @@ function SceneGame(){
 				}
 			}
 
-			if (result.score > (ene.max-2)*5000){//extend
+			if (result.score >= (ene.max-2)*5000){//extend
 				//extend message
 				const msg = g.sprite.itemCreate("BULLET_P", false, 1, 1);
 				msg.priority = 5;
 				msg.normalDrawEnable = false;
 				msg.customDraw = function(g, screen){
-					let r = g.viewport.viewtoReal(this.x-28, this.y);
-					let x = Math.trunc(r.x);
-					let y = Math.trunc(r.y);
-					screen.fill(x,y,48,8,"Black");
+					let r = g.viewport.viewtoReal(this.x-28,this.y);
+					let x = 320-24;//Math.trunc(r.x);
+					let y = 200;//Math.trunc(r.y);
+					g.screen[1].fill(x-4,y,48,8,"Black");
 					g.font["std"].putchr("Extend.", x, y); 
 				};
+				msg.moveFunc = function(delta){ //customMoveFunc
+					this.alive--;
+					if (this.alive <= 0) {
+						this.visible = false;
+					}else{
+						this.visible = true;
+					}
+				}
 				msg.pos(myship.x, myship.y);
-				msg.move(0, 1, 45);
+				msg.move(0, 0, 45);
 
 				ene.now++; 
 				ene.max++;
@@ -239,7 +249,7 @@ function SceneGame(){
 				note[0].play(s, g.time());
 			}
 
-			if (ec == 0){ //(blkcnt <=0){ //Stage Clear;
+			if ( ec == 0 ){ //(blkcnt <=0){ //Stage Clear;
 				if (result.clrf){
 
 					//TimeBonus
@@ -294,12 +304,12 @@ function SceneGame(){
 				result.clrf = false; 
 			}
 
-			if (ene.now <=0){ //Game Over;
+			if (ene.now <=0 || losef){ //Game Over;
 			//if (!myship.spriteItem.living){
 				//myship.spriteItem.dispose();
 
 				delay = g.time()+3000;//MESSAGE WAIT
-				ene.now = 0;
+				if (!losef) ene.now = 0;
 				result.govf = true; 
 
 				let score =["F4","E4","D4","C4","B3","B#3","C4"];
