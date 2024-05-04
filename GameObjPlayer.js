@@ -21,11 +21,11 @@ function GameObjectPlayer(game){
     this.turlet = new turlet_vec_check();
 
     //let MyTurlet;
-    let Friend;
-    let FriendT;
-    let ArmorF;
-    let ArmorL;
-    let ArmorR;
+    //let Friend;
+    //let FriendT;
+    //let ArmorF;
+    //let ArmorL;
+    //let ArmorR;
 
     let status = {speed:0, charge:0, power:0 };
 
@@ -60,7 +60,7 @@ function GameObjectPlayer(game){
     }
 
     let lane;
-    let lanemap;
+    //let lanemap;
 
     let wallcnt;
 
@@ -221,10 +221,11 @@ function GameObjectPlayer(game){
         this.old_y = this.y;
         this.triggerDelay = 0;
         this.stickDelay = 0;
-        this.op.ptr = 0;
-        this.op.x.fill(this.x);
-        this.op.y.fill(this.y);
-        this.op.r.fill(0);
+
+        //this.op.ptr = 0;
+        //this.op.x.fill(this.x);
+        //this.op.y.fill(this.y);
+        //this.op.r.fill(0);
 
         this.spriteItem.mode = 0;
         this.spriteItem.linkedOption = false;
@@ -233,20 +234,20 @@ function GameObjectPlayer(game){
         //MyTurlet.sp.customDraw = customDraw_turlet;
         //MyTurlet.sp.priority = 1;
 
-        Friend = {sp:g.sprite.itemCreate("FRIEND_P", true, 32, 32) , re:false};
-        FriendT = {sp:g.sprite.itemCreate("Turlet", false, 32, 32) , re:false};
-        ArmorF = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
-        ArmorL = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
-        ArmorR = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
+        //Friend = {sp:g.sprite.itemCreate("FRIEND_P", true, 32, 32) , re:false};
+        //FriendT = {sp:g.sprite.itemCreate("Turlet", false, 32, 32) , re:false};
+        //ArmorF = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
+        //ArmorL = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
+        //ArmorR = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
 
         reexf = false;
         blmode = false;
 
-        Friend.sp.dispose(); Friend.re = true; 
-        FriendT.sp.dispose(); FriendT.re = true;
-        ArmorF.sp.dispose(); ArmorF.re = true;
-        ArmorL.sp.dispose(); ArmorL.re = true;
-        ArmorR.sp.dispose(); ArmorR.re = true;
+        //Friend.sp.dispose(); Friend.re = true; 
+        //FriendT.sp.dispose(); FriendT.re = true;
+        //ArmorF.sp.dispose(); ArmorF.re = true;
+        //ArmorL.sp.dispose(); ArmorL.re = true;
+        //ArmorR.sp.dispose(); ArmorR.re = true;
 
         notescore = g.beep.makeScore(["C3"], 250, 0.3);
 
@@ -286,13 +287,14 @@ function GameObjectPlayer(game){
 
                 sp.pos(px, py, 0, 0.6 );
                 sp.move((r+90)% 360, 16, 120);// number, r, speed, lifetime//3kf 5min
-
+                /*
                 if (Friend.sp.living){
                     op = this.op;
                     sp = g.sprite.itemCreate("BULLET_P3", true, 8, 8);
                     sp.pos(op.x[(op.ptr) % op.x.length], op.y[(op.ptr) % op.x.length], 0, 0.6 );
                     sp.move((op.r[(op.ptr) % op.x.length]+90)% 360, 6, 120);// number, r, speed, lifetime//3kf 5min
                 }
+                */
                 score =["E5","C5"];
                 s = g.beep.makeScore(score, 50, 0.5);
                 note.play(s, g.time());
@@ -376,23 +378,23 @@ function GameObjectPlayer(game){
             if (pup){
                 //Powerup処理
                 if ((this.spriteItem.mode&1) != 0){
-                    if (!ArmorF.sp.living){
-                        ArmorF = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
-                    }
+                //    if (!ArmorF.sp.living){
+                //        ArmorF = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
+                //    }
                 }
                 if ((this.spriteItem.mode&2) != 0){
-                    if (!ArmorL.sp.living){
-                        ArmorL = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
-                    }
-                    if (!ArmorR.sp.living){
-                        ArmorR = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
-                    }
+                //    if (!ArmorL.sp.living){
+                //        ArmorL = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
+                //    }
+                //    if (!ArmorR.sp.living){
+                //        ArmorR = {sp:g.sprite.itemCreate("ARMOR_P", true, 32, 32), re:false};
+                //    }
                 }
                 if ((this.spriteItem.mode&4) != 0){
-                    if (!Friend.sp.living){
-                        Friend = {sp:g.sprite.itemCreate("FRIEND_P", true, 32, 32) , re:false};
-                        FriendT = {sp:g.sprite.itemCreate("Turlet", false, 32, 32) , re:false};
-                    }
+                //    if (!Friend.sp.living){
+                //        Friend = {sp:g.sprite.itemCreate("FRIEND_P", true, 32, 32) , re:false};
+                //        FriendT = {sp:g.sprite.itemCreate("Turlet", false, 32, 32) , re:false};
+                //    }
                 }
                 if ((this.spriteItem.mode&8) != 0){
                     blmode = (blmode)?false:true;
@@ -406,10 +408,10 @@ function GameObjectPlayer(game){
                     this.x, this.y);
                 reexf = true;
                 //MyTurlet.sp.hide();
-                if (Friend.sp.living) Friend.sp.dispose();
-                if (ArmorF.sp.living) ArmorF.sp.dispose();
-                if (ArmorL.sp.living) ArmorL.sp.dispose();
-                if (ArmorR.sp.living) ArmorR.sp.dispose();
+                //if (Friend.sp.living) Friend.sp.dispose();
+                //if (ArmorF.sp.living) ArmorF.sp.dispose();
+                //if (ArmorL.sp.living) ArmorL.sp.dispose();
+                //if (ArmorR.sp.living) ArmorR.sp.dispose();
                 blmode = false;
 
                 status.speed = 0;
@@ -426,7 +428,8 @@ function GameObjectPlayer(game){
             vx=0;
             vy=0;
         }
-
+        
+        /*
         if (Friend.sp.living){
             this.spriteItem.linkedOption = true;
             //僚機が生きている状態
@@ -447,7 +450,7 @@ function GameObjectPlayer(game){
             war = Boolean(ArmorF.wall)?((ArmorR.wall)?true:false):false;
             ArmorR.wall = false;        
         }
-        
+        */
         wallf = (wpl || waf || wal || war)?true:false;
         if (wallf){ 
             //this.x = this.old_x;
@@ -474,8 +477,8 @@ function GameObjectPlayer(game){
             vx = ((this.old_x - this.x) + vx)/2;
             vy = ((this.old_y - this.y) + vy)/2;
 
-            this.old_x = Math.trunc(this.x);
-            this.old_y = Math.trunc(this.y);
+            this.old_x = this.x;
+            this.old_y = this.y;
 
             let tajs = (g.deltaTime()/(1000/60));//speed DeltaTime ajust 60f base
             this.x = this.x + (vx * tajs);
@@ -494,14 +497,14 @@ function GameObjectPlayer(game){
             if (this.y > RESO_Y)	this.y = 0;
             */
             //if (!result.clrf) this.r = this.turlet.vecToR(vx,vy);
-
+            /*
             op = this.op;
             op.x[op.ptr] = Math.trunc(this.x);
             op.y[op.ptr] = Math.trunc(this.y);
             op.r[op.ptr] = this.turlet.vector();
             op.ptr++;
             op.ptr = op.ptr % op.x.length; 
-
+            */
             if (g.time() > notetime) note.busy = false;
             if ((!note.busy)&&(!result.clrf)){
                 for (let i in notescore){
@@ -540,7 +543,7 @@ function GameObjectPlayer(game){
         }
 
         //g.viewport.setPos(Math.trunc(this.x-320), Math.trunc(this.y-240));
-        g.screen[0].buffer.turn(270 - this.turlet.vector());
+        g.screen[0].buffer.turn(Math.trunc(270 - this.turlet.vector()));
     }
     
     this.draw = function(g){
@@ -556,7 +559,7 @@ function GameObjectPlayer(game){
         //g.screen[1].fill(0,240,16,200,"yellowgreen");
         //g.screen[1].fill(1,241,14,198-(198*(status.speed/30)),"black");
 
-
+        /*
         if (Friend.sp.living){
             for (let i=0; i < this.op.x.length - 5; i+=3){
                 let op = this.op;
@@ -587,10 +590,13 @@ function GameObjectPlayer(game){
                 Friend.re = true;
             }
         }
+        */
+        //let tx = Math.trunc(this.x);
+        //let ty = Math.trunc(this.y);
 
-        let tx = Math.trunc(this.x);
-        let ty = Math.trunc(this.y);
-
+        let tx = this.x;
+        let ty = this.y;
+        /*
         if (ArmorF.sp.living){	
             ArmorF.sp.pos(
                 Math.trunc(tx + Math.cos((this.r)*(Math.PI/180))*20)
@@ -638,8 +644,8 @@ function GameObjectPlayer(game){
                 ArmorR.re = true;
             }
         }
-
-        this.spriteItem.pos(tx, ty, (this.turlet.vector()+90)% 360, 1);
+        */
+        this.spriteItem.pos(tx, ty, Math.trunc(this.turlet.vector()+90)% 360, 1);
         this.spriteItem.view();
         /*
         if (MyTurlet.sp.living){

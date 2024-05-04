@@ -31,11 +31,17 @@ function StageControl(game){
 
 		rank = stage;
 
-		for (let i=1; i<7; i++){
+		for (let i=1; i<4; i++){
 			let enemy = new GameObjectEnemy(g);
 			enemy.spriteItem = g.sprite.itemCreate("Enemy", true, 28, 28);
 			enemy.spriteItem.pos(800 - i * 32,100);
-			enemy.init(8 + i*2 + rank, (15-i)/10, i);//maxspeed, accel, lane
+			enemy.init(8 + i*2 + rank, (15-i)/10, 2+i);//maxspeed, accel, lane
+			GObj.push(enemy);
+
+			enemy = new GameObjectEnemy(g);
+			enemy.spriteItem = g.sprite.itemCreate("Enemy", true, 28, 28);
+			enemy.spriteItem.pos(800 - i * 32,260);
+			enemy.init(8 + (i+3)*2 + rank, (15-(i+3))/10, 4-i);//maxspeed, accel, lane
 			GObj.push(enemy);
 		}
 	}
