@@ -239,7 +239,7 @@ function SceneGame(){
 					}
 				}
 				msg.pos(myship.x, myship.y);
-				msg.move(0, 0, 45);
+				msg.move(0, 0, 60);
 
 				ene.now++; 
 				ene.max++;

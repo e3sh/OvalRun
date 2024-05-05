@@ -121,24 +121,22 @@ function mapImageCreate(dev){
 		const m = mapGuideMarkerCreate(j*20);
 
 		cpmap.push(m);
-
-		for (let i in m){
-
-			if (i == 0 || i == m.length-1){
-				dev.beginPath();
-				dev.fillStyle = "lightgray";
-				dev.globalAlpha = 1.0;
-				dev.arc( m[i][0], m[i][1], 10, 0, Math.PI*2, true);
-				dev.fill();
-			
-				dev.font = "12px serif";
-				dev.fillStyle = "Gray";
-				dev.globalAlpha = 1.0;
-				let n = j+3;
-				dev.fillText("" + n,  m[i][0]-4, m[i][1]+4);
-			}
-		}
-
+		
+		//for (let i in m){
+		let i = m.length-1;
+		dev.beginPath();
+		dev.fillStyle = "lightgray"; 
+		dev.globalAlpha = 1.0;
+		dev.arc( m[i][0], m[i][1], 10, 0, Math.PI*2, true);
+		dev.fill();
+	
+		dev.font = "12px serif";
+		dev.fillStyle = "Gray";
+		dev.globalAlpha = 1.0;
+		let n = j+3;
+		dev.fillText("" + n,  m[i][0]-4, m[i][1]+4);
+		//}
+		
 		dev.beginPath();
 		dev.strokeStyle = "gray";
 		dev.lineWidth = 1;
@@ -151,6 +149,20 @@ function mapImageCreate(dev){
 		dev.stroke();
 	}
 
+
+	let x1 = cpmap[0][cpmap[0].length-1][0];
+	let y1 = cpmap[0][cpmap[0].length-1][1];
+	let x2 = cpmap[6][cpmap[6].length-1][0];
+	let y2 = cpmap[6][cpmap[6].length-1][1];
+	let cp_r = 60;
+
+	dev.beginPath();
+	dev.strokeStyle = "darkgray";
+	dev.lineWidth = 3;
+	dev.moveTo(x1-cp_r, y1);
+	dev.lineTo(x2-cp_r, y2);
+	dev.stroke();
+
 	return cpmap;
 }
 
@@ -160,9 +172,7 @@ function mapGuideMarkerCreate(shift){
 		const h = 960
 		const r = 300 + shift;
 
-		const m = [
-			[w/2,h/2-r]//0 800,120
-		];
+		const m = [];
 
 		for (let i =-90; i<=90; i+=22.5){
 			let x = (w-h/2) + Math.cos((Math.PI/180)*i)*r;
@@ -177,6 +187,7 @@ function mapGuideMarkerCreate(shift){
 			m.push([x,y]);
 		}
 		m.push([w/2-140,h/2-r]);
+		m.push([w/2,h/2-r]);
 
 		return m;
 }

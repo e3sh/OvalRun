@@ -278,26 +278,27 @@ function GameObjectPlayer(game){
         if (trigger) {
             if (this.triggerDelay < g.time()){
                 this.triggerDelay = g.time()+250;
+                if (this.spriteItem.living){
+                    let sp = g.sprite.itemCreate(((blmode)?"BULLET_P2":"BULLET_P"), true, 8, 8);
 
-                let sp = g.sprite.itemCreate(((blmode)?"BULLET_P2":"BULLET_P"), true, 8, 8);
+                    let r =  this.turlet.vector();
+                    let px = this.x + Math.cos((Math.PI/180)*r)*16
+                    let py = this.y + Math.sin((Math.PI/180)*r)*16 
 
-                let r =  this.turlet.vector();
-                let px = this.x + Math.cos((Math.PI/180)*r)*16
-                let py = this.y + Math.sin((Math.PI/180)*r)*16 
-
-                sp.pos(px, py, 0, 0.6 );
-                sp.move((r+90)% 360, 16, 120);// r, speed, lifetime
-                /*
-                if (Friend.sp.living){
-                    op = this.op;
-                    sp = g.sprite.itemCreate("BULLET_P3", true, 8, 8);
-                    sp.pos(op.x[(op.ptr) % op.x.length], op.y[(op.ptr) % op.x.length], 0, 0.6 );
-                    sp.move((op.r[(op.ptr) % op.x.length]+90)% 360, 6, 120);// number, r, speed, lifetime//3kf 5min
+                    sp.pos(px, py, 0, 0.6 );
+                    sp.move((r+90)% 360, 16, 120);// r, speed, lifetime
+                    /*
+                    if (Friend.sp.living){
+                        op = this.op;
+                        sp = g.sprite.itemCreate("BULLET_P3", true, 8, 8);
+                        sp.pos(op.x[(op.ptr) % op.x.length], op.y[(op.ptr) % op.x.length], 0, 0.6 );
+                        sp.move((op.r[(op.ptr) % op.x.length]+90)% 360, 6, 120);// number, r, speed, lifetime//3kf 5min
+                    }
+                    */
+                    score =["E5","C5"];
+                    s = g.beep.makeScore(score, 50, 0.5);
+                    note.play(s, g.time());
                 }
-                */
-                score =["E5","C5"];
-                s = g.beep.makeScore(score, 50, 0.5);
-                note.play(s, g.time());
             }
         }
 
