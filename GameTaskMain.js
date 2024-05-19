@@ -123,9 +123,10 @@ class GameTask_Main extends GameTask {
 		   }
 		}
 
-		/* // Input Mouse ENTRY Check
+		// Input Mouse ENTRY Check
+		g.mouse.mode(g);
 	    let mstate = g.mouse.check();
-
+		/*
 		if ((mstate.x != this._sm.old_x)||(mstate.x != this._sm.old_x)){
 			this._x = mstate.x;
 			this._y = mstate.y;
@@ -140,6 +141,8 @@ class GameTask_Main extends GameTask {
 			whr = (Math.sign(mstate.wheel)>0)?true:false;
 		}
 		*/
+
+		g.touchpad.mode(g);
 		// Input VGpad ENTRY
 		let v = g.vgamepad.check();
 
